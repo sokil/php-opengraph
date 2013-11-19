@@ -16,6 +16,8 @@ class OpenGraphTest extends \PHPUnit_Framework_TestCase
             ->setUrl('http://example.com/');
         
         $this->assertEquals($expected, $og->render());
+        
+        $this->assertEquals($expected, (string) $og);
     }
     
     /**

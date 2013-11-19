@@ -367,7 +367,7 @@ class OpenGraph
     
     public function __toString()
     {
-        echo $this->render();
+        return $this->render();
     }
     
     public function render()
