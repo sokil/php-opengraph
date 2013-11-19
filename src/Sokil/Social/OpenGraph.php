@@ -370,6 +370,21 @@ class OpenGraph
         return $this->render();
     }
     
+    public function toArray()
+    {
+        $tags = array();
+        
+        foreach(array_filter($this->_propertyList) as $propertyName => $propertyValue) {
+            $tags['og:' . $propertyName] = $propertyValue;
+        }
+
+        if(count($this->_facebookAdminList)) {
+            $tags['fb:admins'] = implode(';', $this->_facebookAdminList);
+        }
+        
+        return $tags;
+    }
+    
     public function render()
     {
         //test required fields
@@ -390,17 +405,17 @@ class OpenGraph
         }
 
         // render
-        $html = array();
+        $tags = array();
         $metaTagPattern = '<meta property="%s" content="%s" />';
         
         foreach(array_filter($this->_propertyList) as $propertyName => $propertyValue) {
-            $html[] = sprintf($metaTagPattern, 'og:' . $propertyName, $propertyValue);
+            $tags[] = sprintf($metaTagPattern, 'og:' . $propertyName, $propertyValue);
         }
 
         if(count($this->_facebookAdminList)) {
-            $html[] = sprintf($metaTagPattern, 'fb:admins', implode(';', $this->_facebookAdminList));
+            $tags[] = sprintf($metaTagPattern, 'fb:admins', implode(';', $this->_facebookAdminList));
         }
 
-        return implode('', $html);
+        return implode('', $tags);
     }
 }
