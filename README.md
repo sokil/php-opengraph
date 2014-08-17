@@ -18,3 +18,23 @@ $openGraph
   ->setVideoUrl('https://server.com/3453245.torrent')
   ->setVideoType('application/x-bittorrent');
 ```
+
+Then you can get opengraph as array. This may be useful to render meta tags in frameworks. Example for Yii:
+
+```php
+$cs = Yii::app()->getClientScript();
+foreach($openGraph->toArray() as $property => $content) {
+    $cs->registerMetaTag($content, null, null, array(
+        'property'  => $property,
+    ));
+}
+```
+
+You van render meta tags directly:
+```php
+echo $openGraph->render();
+
+// or just:
+echo $openGraph;
+
+```
