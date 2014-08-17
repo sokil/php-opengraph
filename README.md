@@ -1,4 +1,4 @@
-php-social-opengraph
+php-opengraph
 ====================
 
 Lib to render open graph.
