@@ -30,7 +30,7 @@ foreach($openGraph->toArray() as $property => $content) {
 }
 ```
 
-You van render meta tags directly:
+You can render meta tags directly:
 ```php
 echo $openGraph->render();
 
