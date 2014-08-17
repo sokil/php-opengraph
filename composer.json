@@ -9,8 +9,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "Sokil": "src/"
+        "psr-4": {
+            "Sokil\\": "src/"
         }
     }
 }

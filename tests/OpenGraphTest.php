@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Social;
+namespace Sokil;
 
 class OpenGraphTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +11,7 @@ class OpenGraphTest extends \PHPUnit_Framework_TestCase
         $og = new OpenGraph;
         $og
             ->setTitle('Title')
-            ->setType(\Sokil\Social\OpenGraph::TYPE_WEBSITES_WEBSITE)
+            ->setType(OpenGraph::TYPE_WEBSITES_WEBSITE)
             ->setImage('http://example.com/image.png')
             ->setUrl('http://example.com/');
         
@@ -25,7 +25,7 @@ class OpenGraphTest extends \PHPUnit_Framework_TestCase
         $og = new OpenGraph;
         $og
             ->setTitle('Title')
-            ->setType(\Sokil\Social\OpenGraph::TYPE_WEBSITES_WEBSITE)
+            ->setType(OpenGraph::TYPE_WEBSITES_WEBSITE)
             ->setImage('http://example.com/image.png')
             ->setUrl('http://example.com/');
         

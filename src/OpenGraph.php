@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Social;
+namespace Sokil;
 
 /**
  * Documentation: http://ogp.me/
