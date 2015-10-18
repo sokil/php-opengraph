@@ -4,6 +4,16 @@ php-opengraph
 
 Lib to render open graph.
 
+Installation
+------------
+```
+{
+    "require": {
+        "sokil/php-social-opengraph": "dev-master"
+    }
+}
+```
+
 Basic Usage
 -----------
 
