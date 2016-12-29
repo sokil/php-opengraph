@@ -1,6 +1,6 @@
 php-opengraph
 ====================
-[![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-opengraph.svg)](https://packagist.org/packages/sokil/php-opengraph)
+[![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-social-opengraph.svg)](https://packagist.org/packages/sokil/php-social-opengraph)
 
 Lib to render open graph.
 
