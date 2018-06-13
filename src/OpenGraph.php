@@ -3,14 +3,14 @@
 namespace Sokil;
 
 /**
- * Documentation: http://ogp.me/
+ * @see http://ogp.me/
  */
 class OpenGraph
 {
     /**
      * @var array opengraph property list
      */
-    private $_propertyList = array(
+    private $propertyList = array(
         // basic
         'title'             => null,
         'type'              => null,
@@ -55,8 +55,7 @@ class OpenGraph
      * list of facebook admins
      * @var array
      */
-    private $_facebookAdminList = array();
-
+    private $facebookAdminList = array();
 
     const TYPE_ACTIVITIES_ACTIVITY      = 'activity';
     const TYPE_ACTIVITIES_SPORT         = 'sport';
@@ -106,199 +105,297 @@ class OpenGraph
     const TYPE_WEBSITES_BLOG            = 'blog';
     const TYPE_WEBSITES_WEBSITE         = 'website';
 
+    /**
+     * @param array $propertyList
+     *
+     * @return self
+     */
     public function setFromArray($propertyList)
     {
-        $validPropertyList = array_intersect_key($propertyList, $this->_propertyList);
+        $validPropertyList = array_intersect_key($propertyList, $this->propertyList);
 
-        $this->_propertyList = array_merge($validPropertyList, $this->_propertyList);
+        $this->propertyList = array_merge($validPropertyList, $this->propertyList);
 
         return $this;
     }
 
+    /**
+     * @param string $identity
+     *
+     * @return self
+     */
     public function addFacebookAdmin($identity)
     {
         if(is_array($identity)) {
-            $this->_facebookAdminList += $identity;
+            $this->facebookAdminList += $identity;
         }
         else {
-            $this->_facebookAdminList[] = $identity;
+            $this->facebookAdminList[] = $identity;
         }
 
         return $this;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return self
+     */
     public function setTitle($title)
     {
-        $this->_propertyList['title'] = strip_tags($title);
+        $this->propertyList['title'] = strip_tags($title);
 
         return $this;
     }
 
+    /**
+     * @param string $type One of self::TYPE_* constants or any string
+     *
+     * @return self
+     */
     public function setType($type)
     {
-        $this->_propertyList['type'] = $type;
+        $this->propertyList['type'] = $type;
 
         return $this;
     }
 
+    /**
+     * @param string $image
+     *
+     * @return self
+     */
     public function setImage($image)
     {
-        $this->_propertyList['image'] = $image;
+        $this->propertyList['image'] = $image;
 
         return $this;
     }
 
+    /**
+     * @param string $url
+     *
+     * @return self
+     */
     public function setUrl($url)
     {
-        $this->_propertyList['url'] = $url;
+        $this->propertyList['url'] = $url;
 
         return $this;
     }
 
+    /**
+     * @param string $description
+     *
+     * @return self
+     */
     public function setDescription($description)
     {
-        $this->_propertyList['description'] = strip_tags($description);
+        $this->propertyList['description'] = strip_tags($description);
 
         return $this;
     }
 
+    /**
+     * @param string $siteName
+     *
+     * @return self
+     */
     public function setSiteName($siteName)
     {
-        $this->_propertyList['site_name'] = $siteName;
+        $this->propertyList['site_name'] = $siteName;
 
         return $this;
     }
 
+    /**
+     * @param string $upc
+     *
+     * @return self
+     */
     public function setUPC($upc)
     {
-        $this->_propertyList['upc'] = $upc;
+        $this->propertyList['upc'] = $upc;
 
         return $this;
     }
 
+    /**
+     * @param string $isbn
+     *
+     * @return self
+     */
     public function setISBN($isbn)
     {
-        $this->_propertyList['isbn'] = $isbn;
+        $this->propertyList['isbn'] = $isbn;
 
         return $this;
     }
 
     /**
      * latitude
+     *
+     * @param string $latitude
+     *
+     * @return self
      */
     public function setLatitude($latitude)
     {
-        $this->_propertyList['latitude'] = $latitude;
+        $this->propertyList['latitude'] = $latitude;
 
         return $this;
     }
 
     /**
      * longitude
+     *
+     * @param string $longitude
+     *
+     * @return self
      */
     public function setLongitude($longitude)
     {
-        $this->_propertyList['longitude'] = $longitude;
+        $this->propertyList['longitude'] = $longitude;
 
         return $this;
     }
 
     /**
      * street-address
+     *
+     * @param string $streetAddress
+     *
+     * @return self
      */
     public function setStreetAddress($streetAddress)
     {
-        $this->_propertyList['street-address'] = $streetAddress;
+        $this->propertyList['street-address'] = $streetAddress;
 
         return $this;
     }
 
     /**
      * locality
+     *
+     * @param string $locality
+     *
+     * @return self
      */
     public function setLocality($locality)
     {
-        $this->_propertyList['locality'] = $locality;
+        $this->propertyList['locality'] = $locality;
 
         return $this;
     }
 
     /**
      * region
+     *
+     * @param string $region
+     *
+     * @return self
      */
     public function setRegion($region)
     {
-        $this->_propertyList['region'] = $region;
+        $this->propertyList['region'] = $region;
 
         return $this;
     }
 
     /**
      * postal-code
+     *
+     * @param string $postalCode
+     *
+     * @return self
      */
     public function setPostalCode($postalCode)
     {
-        $this->_propertyList['postal-code'] = $postalCode;
+        $this->propertyList['postal-code'] = $postalCode;
 
         return $this;
     }
 
     /**
      * country-name
+     *
+     * @param string $countryName
+     *
+     * @return self
      */
     public function setCountryName($countryName)
     {
-        $this->_propertyList['country-name'] = $countryName;
+        $this->propertyList['country-name'] = $countryName;
 
         return $this;
     }
 
     /**
      * email
+     *
+     * @param string $email
+     *
+     * @return self
      */
     public function setEmail($email)
     {
-        $this->_propertyList['email'] = $email;
+        $this->propertyList['email'] = $email;
 
         return $this;
     }
 
     /**
      * phone_number
+     *
+     * @param string $phoneNumber
+     *
+     * @return self
      */
     public function setPhoneNumber($phoneNumber)
     {
-        $this->_propertyList['phone_number'] = $phoneNumber;
+        $this->propertyList['phone_number'] = $phoneNumber;
 
         return $this;
     }
 
     /**
      * fax_number
+     *
+     * @param string $faxNumber
+     *
+     * @return self
      */
     public function setFaxNumber($faxNumber)
     {
-        $this->_propertyList['country-name'] = $countryName;
+        $this->propertyList['fax_number'] = $faxNumber;
 
         return $this;
     }
 
     /**
      * video
+     *
+     * @param string $url
+     *
+     * @return self
      */
     public function setVideoUrl($url)
     {
-        $this->_propertyList['video'] = $url;
+        $this->propertyList['video'] = $url;
 
         return $this;
     }
 
     /**
      * video:type
+     *
+     * @param string $type
+     *
+     * @return string
      */
     public function setVideoType($type)
     {
-        $this->_propertyList['video:type'] = $type;
+        $this->propertyList['video:type'] = $type;
 
         return $this;
     }
@@ -306,101 +403,152 @@ class OpenGraph
     /**
      * video:height
      * video:width
+     *
+     * @param string $height
+     * @param string $width
+     *
+     * @return self
      */
-    public function setVideoDimensoin($height, $width)
+    public function setVideoDimension($height, $width)
     {
-        $this->_propertyList['video:height']    = $height;
-        $this->_propertyList['video:width']     = $width;
+        $this->propertyList['video:height']    = $height;
+        $this->propertyList['video:width']     = $width;
 
         return $this;
     }
 
     /**
+     * @deprecated use self::setVideoDimension
+     *
+     * @param string $height
+     * @param string $width
+     *
+     * @return self
+     */
+    public function setVideoDimensoin($height, $width)
+    {
+        return $this->setVideoDimensoin($height, $width);
+    }
+
+    /**
      * audio
+     *
+     * @param string $url
+     *
+     * @return self
      */
     public function setAudioUrl($url)
     {
-        $this->_propertyList['audio'] = $url;
+        $this->propertyList['audio'] = $url;
 
         return $this;
     }
 
     /**
      * audio:title
+     *
+     * @param string $audioTitle
+     *
+     * @return self
      */
     public function setAudioTitle($audioTitle)
     {
-        $this->_propertyList['audio:title'] = $audioTitle;
+        $this->propertyList['audio:title'] = $audioTitle;
 
         return $this;
     }
 
     /**
      * audio:artist
+     *
+     * @param string $audioArtist
+     *
+     * @return self
      */
     public function setAudioArtist($audioArtist)
     {
-        $this->_propertyList['country-name'] = $countryName;
+        $this->propertyList['audio:artist'] = $audioArtist;
 
         return $this;
     }
 
     /**
      * audio:album
+     *
+     * @param string $audioAlbum
+     *
+     * @return self
      */
     public function setAudioAlbum($audioAlbum)
     {
-        $this->_propertyList['audio:album'] = $audioAlbum;
+        $this->propertyList['audio:album'] = $audioAlbum;
 
         return $this;
     }
 
     /**
      * audio:type
+     *
+     * @param string $audioType
+     *
+     * @return self
      */
     public function setAudioType($audioType)
     {
-        $this->_propertyList['audio:type'] = $audioType;
+        $this->propertyList['audio:type'] = $audioType;
 
         return $this;
     }
-    
+
+    /**
+     * @return string
+     *
+     * @throws \Exception
+     */
     public function __toString()
     {
         return $this->render();
     }
-    
+
+    /**
+     * @return array
+     */
     public function toArray()
     {
         $tags = array();
         
-        foreach(array_filter($this->_propertyList) as $propertyName => $propertyValue) {
+        foreach(array_filter($this->propertyList) as $propertyName => $propertyValue) {
             $tags['og:' . $propertyName] = $propertyValue;
         }
 
-        if(count($this->_facebookAdminList)) {
-            $tags['fb:admins'] = implode(';', $this->_facebookAdminList);
+        if(count($this->facebookAdminList)) {
+            $tags['fb:admins'] = implode(';', $this->facebookAdminList);
         }
         
         return $tags;
     }
-    
+
+    /**
+     * @return string
+     *
+     * @throws \Exception
+     */
     public function render()
     {
         //test required fields
-        if(empty($this->_propertyList['title'])) {
+        if (empty($this->propertyList['title'])) {
             throw new \Exception('Open Graph page title not specified');
         }
 
-        if(empty($this->_propertyList['type'])) {
+        if (empty($this->propertyList['type'])) {
             throw new \Exception('Open Graph page type not specified');
         }
 
-        if(empty($this->_propertyList['image'])) {
+        if (empty($this->propertyList['image'])) {
             throw new \Exception('Open Graph page image not specified');
         }
 
-        if(empty($this->_propertyList['url'])) {
+        if (empty($this->propertyList['url'])) {
             throw new \Exception('Open Graph page URL not specified');
         }
 
@@ -408,12 +556,12 @@ class OpenGraph
         $tags = array();
         $metaTagPattern = '<meta property="%s" content="%s" />';
         
-        foreach(array_filter($this->_propertyList) as $propertyName => $propertyValue) {
+        foreach(array_filter($this->propertyList) as $propertyName => $propertyValue) {
             $tags[] = sprintf($metaTagPattern, 'og:' . $propertyName, $propertyValue);
         }
 
-        if(count($this->_facebookAdminList)) {
-            $tags[] = sprintf($metaTagPattern, 'fb:admins', implode(';', $this->_facebookAdminList));
+        if (count($this->facebookAdminList)) {
+            $tags[] = sprintf($metaTagPattern, 'fb:admins', implode(';', $this->facebookAdminList));
         }
 
         return implode(PHP_EOL, $tags);
