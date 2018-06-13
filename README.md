@@ -8,11 +8,7 @@ Lib to render open graph.
 Installation
 ------------
 ```
-{
-    "require": {
-        "sokil/php-social-opengraph": "dev-master"
-    }
-}
+composer require sokil/php-social-opengraph
 ```
 
 Basic Usage
