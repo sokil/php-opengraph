@@ -416,6 +416,6 @@ class OpenGraph
             $tags[] = sprintf($metaTagPattern, 'fb:admins', implode(';', $this->_facebookAdminList));
         }
 
-        return implode('', $tags);
+        return implode(PHP_EOL, $tags);
     }
 }
